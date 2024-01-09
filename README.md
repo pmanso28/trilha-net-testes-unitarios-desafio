@@ -1,8 +1,17 @@
 # DIO - Trilha .NET - Testes Unitários com C#
 www.dio.me
 
+**Languages** <br>
+- [Português](#português)  <br>
+- [English](#english)
+
+### Português
+
+## Aviso
+O projeto original (que recebeu o fork) estava em .NET 6.0 e no momento não sei atualizá-lo para 8.0, mas assim que aprender assim o farei.
+
 ## Desafio de projeto
-Para este desafio, você precisará usar seus conhecimentos adquiridos no módulo de Testes Unitários com C#, da trilha .NET da DIO.
+Atividade de projeto de teste unitário feita como parte do Decola Tech Avanade 2024.
 
 ## Contexto
 Você está trabalhando em um sistema, e seus gestores relataram que frequentemente há problemas no software: bugs, funcionalidades que estavam funcionando de repente não funcionam mais, problemas de validações, entre outros. Os clientes já começam a duvidar da qualidade do código.
@@ -78,4 +87,89 @@ O projeto está estruturado da seguinte maneira:
 
 
 ## Solução
-O código de testes está pela metade, e você deverá dar continuidade implementando os testes descritos acima, para que no final, tenhamos um programa de testes funcional. Procure pela palavra comentada "TODO" no código, em seguida, implemente conforme as regras acima.
+Além de dois exemplos de testes, nenhum deles funcionou de imediato e teve que ser corrigido de uma forma ou de outra, utilizando os conceitos das aulas.
+
+### English
+
+## Notice
+The original project (which received the fork) was in .NET 6.0 and at the moment I don't know how to update it to 8.0, but as soon as I learn so I will do so.
+
+## Project challenge
+This unit testing programming project was made as part of the Decola Tech Avanade 2024 course's set of projects.
+
+## Context
+You are working on a system, and your managers have reported that there are often problems with the software: bugs, features that were working suddenly no longer work, validation problems, among others. Customers already started to doubt the quality of the code.
+
+With this, you suggested implementing unit tests: writing tests covering the most critical parts of the system, with positive and negative scenarios, in order to have traceability and control of the code, thus improving the quality of that system.
+
+The managers accepted your idea, and with that, you need to implement unit tests in the system.
+
+## Premises
+The system today has two projects: um of the console type, and one of the testing type whith **xUnit**. the console type project has two classes in which the main logic is carried out: **ValidacoesLista** and **ValidacoesString**. These classes contain common methods that are used to perform various validations in certain scenarios.
+
+The testing type project contains two testing classes, **ValidacoesListaTests** and **ValidacoesStringTests**, as well as their methods to validate the console type project, but they're incomplete. 
+
+Your objective is to implement the testing methods contained in the project.
+
+## Console Project, it's classes and methods
+
+Those are the console project's classes, where the mais system logic is located.
+
+**ValidaçõesLista Class**
+
+Class responsible for performing various validations involving lists.
+
+
+| Class           | Method                       | Objective                                                                                                               |
+|---------------- |------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+| ValidacoesLista | RemoverNumerosNegativos      | Receives a list of integers and returns a new list, with only positive numbers                                          |
+| ValidacoesLista | ListaContemDeterminadoNumero | Receives a list of integers and checks if a given number is present within that list                                    |
+| ValidacoesLista | MultiplicarNumerosLista      | Receives a list of integers and returns a new list, with their values ​​multiplied by a given number                      |
+| ValidacoesLista | RetornarMaiorNumeroLista     | Receives a list of integers and returns the highest number among them                                                   |
+| ValidacoesLista | RetornarMenorNumeroLista     | Receives a list of integers and returns the smallest number among them                                                  |
+
+**ValidacoesString Class**
+
+Class responsible for performing various validations involving strings.
+
+| Class            | Method                       | Objective                                                                                                                
+|------------------|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ValidacoesString | RetornarQuantidadeCaracteres | Receives a string and returns the number of characters present in the string                                                                               |
+| ValidacoesString | ContemCaractere              | Receives a string and a text to be searched for, returns true or false if a particular searched part is present in the string                              |
+| ValidacoesString | TextoTerminaCom              | Receives a string and a text to be searched for, returns true or false if a particular searched part is present at the end of the string                   |
+
+## Testing Project, it's classes and methods
+
+**ValidacoesListaTests Class**
+
+Class responsible of performing the tests on the ValidacoesLista class.
+
+| Class                | Testing Method                                | Expected test outcomes
+|----------------------|-----------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| ValidacoesListaTests | DeveRemoverNumerosNegativosDeUmaLista         | When passing a list with several numbers, including positive and negative, a new list with only positive numbers should be returned        |
+| ValidacoesListaTests | DeveConterONumero9NaLista                     | When passing a list with several numbers, including the number 9, it should return true, as it found 9 in the list                         |
+| ValidacoesListaTests | NaoDeveConterONumero10NaLista                 | When passing a list with several numbers, but without the number 10, it should return false, as it did not find 10 in the list             |
+| ValidacoesListaTests | DeveMultiplicarOsElementosDaListaPor2         | When passing a list of integers, it should return a new list, with all elements in the list multiplied by 2                                |
+| ValidacoesListaTests | DeveRetornar9ComoMaiorNumeroDaLista           | When passing a list of integers, the highest value of which is 9, 9 should be returned as the highest element within that list             |
+| ValidacoesListaTests | DeveRetornarOitoNegativoComoMenorNumeroDaList | When passing a list of integers, the lowest value of which is -8, -8 should be returned as the lowest element within that list             |
+
+**ValidacoesStringTests Class**
+
+Class responsible of performing the tests on the ValidacoesString class.
+
+| Class                 | Testing Method                                   | Expected test outcomes
+|---------------------- |--------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ValidacoesStringTests | DeveRetornar6QuantidadeCaracteresDaPalavraMatrix | When passing a written text the word "Matrix", the number 6 should be returned, representing the 6 characters present in the word                                                                            |
+| ValidacoesStringTests | DeveContemAPalavraQualquerNoTexto                | When passing a text written "Esse é um texto qualquer" and searching for the word "qualquer", it should return true because the word exists in the text                                                      |
+| ValidacoesStringTests | NaoDeveConterAPalavraTesteNoTexto                | When passing a text written "Esse é um texto qualquer" and searching for the word "teste", it should return false as the word does not exist in the text                                                     |
+| ValidacoesStringTests | TextoDeveTerminarComAPalavraProcurado            | When passing a text written "Começo, meio e fim do texto procurado" and searching for the word "procurado", it should return true because the word exists in the text and is included at the end of the text |
+
+## Structure of the project
+
+The project is structured as seen below:
+
+![Métodos Swagger](Imagens/projeto.png)
+
+
+## Solution
+Apart from two example tests, none of them worked right away and had to be fixed in one way or another, using the concepts from the classes.
